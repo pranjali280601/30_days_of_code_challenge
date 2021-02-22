@@ -1,0 +1,27 @@
+void setZeroes(vector<vector<int>>& matrix) {
+        int i,j;
+        vector<vector<int>> change;
+        int row=matrix.size();
+        if(row==0)
+            return;
+        int col=matrix[0].size();
+        for(i=0;i<row;i++)
+            for(j=0;j<col;j++)
+                if(matrix[i][j]==0)
+                    change.push_back({i,j});
+        for(i=0;i<change.size();i++)
+            yo(change[i],matrix,row,col);
+    }
+    void yo(vector<int> ans, vector<vector<int>>&matrix,int row,int col)
+    {
+      int m=ans[0];
+        int n=ans[1];
+        int j;
+            for(j=0;j<col;j++)
+                matrix[m][j]=0;
+        for(j=0;j<row;j++)
+                matrix[j][n]=0;
+        
+        
+        
+    }
