@@ -1,0 +1,24 @@
+void swap(int *a,int *b){
+        int temp=*a;
+        *a=*b;
+        *b=temp;
+    }
+  
+    void nextPermutation(vector<int>& nums) {
+        int i=nums.size()-2;
+        int n=nums.size();
+        int j=nums.size()-1;
+        while(i>=0 && nums[i+1]<=nums[i])
+            i--;
+        if(i>=0){
+            while(j>=0 && nums[j]<=nums[i])
+                j--;
+        
+        swap(&nums[i],&nums[j]);
+        }
+        int k;
+ for(k=i+1,j=n-1;k<=j;k++,j--)
+            swap(&nums[k],&nums[j]);
+        
+        
+    }
