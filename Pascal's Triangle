@@ -1,0 +1,19 @@
+ vector<ll> nthRowOfPascalTriangle(int n) {
+        // code here
+        long int ans[n][n];
+        int i,a;
+        for(a=0;a<n;a++)
+        {
+            for(i=0;i<=a;i++)
+        {
+            if(i==a || i==0)
+            ans[a][i]=1;
+            else
+            ans[a][i]=(ans[a-1][i-1]+ans[a-1][i])%1000000007;
+        }
+        }
+      vector<ll>go;
+      for(i=0;i<n;i++)
+      go.push_back(ans[n-1][i]);
+        return go;
+    }
