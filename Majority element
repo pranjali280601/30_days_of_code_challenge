@@ -1,0 +1,16 @@
+int majorityElement(vector<int>& nums) {
+       long int len=nums.size(),c,i,max=0,ans;
+        
+        map<int,int>hi;
+        for(i=0;i<len;i++)
+            ++hi[nums[i]];
+        for(auto itr=hi.begin();itr!=hi.end();itr++)
+        {
+            if(itr->second>max)
+            {
+                max=itr->second;
+                ans=itr->first;
+            }
+        }
+        return ans;
+    }
