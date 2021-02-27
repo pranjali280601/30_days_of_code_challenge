@@ -1,0 +1,29 @@
+bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int i,j;
+        
+        int row=matrix.size();
+        if(row==0)
+            return false;
+        int col=matrix[0].size();
+        if(col==0)
+           return false;
+        
+        vector<int> ans(row+1);
+        for(i=0;i<row;i++)
+        {
+            ans=matrix[i];
+            if(target>=ans[0] && target<=ans[col-1])
+               return check(target, ans,col);
+                
+        }
+        return false;
+       
+    }
+    bool check(int target, vector<int>&ans,int col)
+    {
+        for(int i=0;i<col;i++)
+            if(ans[i]==target)
+                return true;
+        return false;
+    }
+};
