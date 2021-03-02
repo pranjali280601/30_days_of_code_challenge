@@ -1,0 +1,32 @@
+int maxLen(int a[], int n)
+{
+    // Your code here
+    int i,j,ans=0,c=0,sum=0;
+    int dp[n];
+    map<int,int>m;
+    for(i=0;i<n;i++){
+        sum+=a[i];
+        dp[i]=sum;
+        ++c;
+        ++m[dp[i]];
+        if(dp[i]==0)
+        {
+            ans=max(ans,c);
+        
+        }
+    }
+    for(i=0;i<n;i++){
+        if(m[dp[i]]>1){
+            j=n-1;
+            while(dp[i]!=dp[j])
+                j--;
+    
+            ans=max(ans,j-i);
+            m[dp[i]]=-1;
+        }
+    }
+    
+    
+   
+    return ans;
+}
