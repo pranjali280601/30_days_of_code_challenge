@@ -1,0 +1,58 @@
+Node* sortedMerge(Node* heada, Node* headb)  
+{  
+    // code here
+    
+    Node *cur,*prev,*ptra=heada, *ptrb=headb,*head;
+    int c=0;
+      if(ptra->data<=ptrb->data)
+      {
+          cur=ptra;
+          ptra=ptra->next;
+      }
+      else
+      {
+          cur=ptrb;
+          ptrb=ptrb->next;
+      }
+    head=cur;
+    while(ptra!=NULL && ptrb!=NULL)
+    {
+    
+    if(ptra->data<=ptrb->data)
+    {
+        
+         
+        cur->next=ptra;
+        cur=cur->next;
+       
+        ptra=ptra->next;
+    }
+    else
+    {
+      
+        cur->next=ptrb;
+ cur=cur->next;
+        
+        ptrb=ptrb->next;
+    }
+
+    }
+    while(ptra!=NULL)
+    {
+       
+        cur->next=ptra;
+        cur=cur->next;
+        ptra=ptra->next;
+        
+    }
+     while(ptrb!=NULL)
+    {
+        
+        cur->next=ptrb;
+        cur=cur->next;
+        ptrb=ptrb->next;
+        
+    }
+    
+    return  head;
+}  
